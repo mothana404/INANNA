@@ -1,8 +1,6 @@
-// components/Footer.jsx
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import FooterLogo from '../../assets/images/White logo - no background.png';
+import FooterLogo from '../../assets/images/footerr.png';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -16,7 +14,7 @@ const Footer = () => {
             <img 
               src={FooterLogo}
               alt="Company Logo" 
-              className="h-12"
+              className="h-20"
             />
             <p className="text-gray-400">
               {t('footer.companyDescription')}

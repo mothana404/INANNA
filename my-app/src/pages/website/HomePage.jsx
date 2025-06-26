@@ -1,4 +1,4 @@
-// src/components/website/HomePage.jsx
+//src/pages/website/HomePage.jsx
 import Navbar from '../../components/website/Navbar';
 import HeroSection from '../../components/website/HeroSection';
 import Footer from '../../components/website/Footer';

@@ -1,14 +1,12 @@
-// components/website/Investors.jsx
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { TrendingUp, Pill, Building2, FileText } from 'lucide-react'; // Using Lucide icons
+import { TrendingUp, Pill, Building2, FileText } from 'lucide-react';
 
 const Investors = () => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('overview');
 
-  // Chart data for revenue growth
   const growthData = {
     type: 'line',
     data: {

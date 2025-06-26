@@ -130,36 +130,32 @@
       "button2": "Schedule a Call"
     }
   },
-  "contact": {
+  "ContactUsPage": {
     "title": "Contact Us",
-    "subtitle": "We're here to help with your pharmaceutical needs and inquiries",
+    "subtitle": "We're here to help and answer any questions you might have. Please feel free to reach out to us.",
     "form": {
       "title": "Send Us a Message",
       "name": "Full Name",
       "email": "Email Address",
       "phone": "Phone Number",
       "subject": "Subject",
-      "inquiry": "Type of Inquiry",
-      "selectInquiry": "Select Inquiry Type",
-      "inquiryTypes": {
-        "product": "Product Information",
-        "business": "Business Development",
-        "medical": "Medical Information",
-        "adverse": "Adverse Event Reporting",
-        "other": "Other"
-      },
-      "message": "Message",
+      "message": "Your Message",
       "submit": "Send Message"
     },
-    "info": {
-      "title": "Get in Touch",
-      "description": "Whether you're a healthcare professional, business partner, or patient, we're here to help. Choose the most convenient way to reach us.",
-      "medicalSupport": "Medical Information Support",
-      "medicalSupportDesc": "For healthcare professionals seeking medical information about our products, please use our dedicated medical information service.",
-      "learnMore": "Learn More"
+    "PhoneCards": {
+      "title": "Phone",
+      "number": "+1 (555) 123-4567",
+      "time": "Mon-Fri, 9AM-6PM"
     },
-    "offices": {
-      "title": "Global Offices"
+    "EmailCards": {
+      "title": "Email",
+      "emil": "contact@medpharm.com",
+      "time": "24/7 Support Available"
+    },
+    "AddressCards": {
+      "title": "Address",
+      "emil": "123 Medical Plaza, NY",
+      "time": "Main Office Location"
     }
   },
   "footer": {

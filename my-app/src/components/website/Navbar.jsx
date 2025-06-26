@@ -1,9 +1,8 @@
-// src/components/website/Navbar.jsx
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../LanguageSwitcher';
-import NavbarLogo from '../../assets/images/Black logo - no background.png';
+import NavbarLogo from '../../assets/images/222527428.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,7 +28,7 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-around items-center h-20">
           {/* Logo */}
           <Link to="/" className="relative z-10">
             <img

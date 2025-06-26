@@ -1,5 +1,3 @@
-// components/website/OurStoryAndMission.jsx
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Heart, FlaskConical, Users } from 'lucide-react';

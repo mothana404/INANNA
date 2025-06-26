@@ -1,4 +1,3 @@
-// src/components/website/HeroSection.jsx
 import { useTranslation } from 'react-i18next';
 import HeoSectionVid from '../../assets/videos/HeroSectionVid.mp4';
 
