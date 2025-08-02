@@ -1,6 +1,6 @@
 //src/layout/WebsiteLayout.jsx
-import Footer from '../components/website/Footer';
-import Navbar from '../components/website/Navbar';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 const WebsiteLayout = ({ children }) => {
   return (

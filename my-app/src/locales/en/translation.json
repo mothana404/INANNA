@@ -26,50 +26,24 @@
     },
     "learnMoreBtn": "View all products"
   },
-  "whyChooseUs": {
-    "title": "Why Choose Us",
-    "subtitle": "We lead the way in pharmaceutical excellence through our commitment to innovation, quality, and global healthcare solutions",
-    "research": {
-      "title": "Advanced Research",
-      "description": "Our state-of-the-art research facilities and dedicated scientists work tirelessly to develop innovative medicines"
+    "whyChooseUs": {
+        "title": "Why Choose Us",
+        "subtitle": "Leading Pharmaceutical Excellence Since 1990",
+        "description": "With over three decades of experience in the pharmaceutical industry, we have established ourselves as a trusted partner for healthcare providers worldwide. Our commitment to quality, innovation, and patient safety drives everything we do.",
+        "points": {
+        "quality": "FDA & EMA approved manufacturing facilities with GMP certification",
+        "research": "15% annual revenue invested in R&D for innovative solutions",
+        "global": "Serving healthcare systems in over 50 countries globally",
+        "products": "Portfolio of 500+ high-quality pharmaceutical products",
+        "support": "24/7 technical support for healthcare professionals",
+        "sustainability": "Committed to sustainable and ethical pharmaceutical practices"
+        },
+        "cta": "Learn More About Our Mission"
     },
-    "quality": {
-      "title": "Quality Assurance",
-      "description": "We maintain the highest standards of quality control across all our manufacturing and distribution processes"
-    },
-    "global": {
-      "title": "Global Reach",
-      "description": "With a presence in multiple countries, we ensure our healthcare solutions reach those who need them most"
-    },
-    "innovation": {
-      "title": "Focus on Innovation",
-      "description": "Continuous investment in cutting-edge technology and innovative solutions to achieve better healthcare outcomes"
-    },
-    "learnMore": "Learn More About Us"
-  },
-   "ourStory": {
-    "label": "Our Foundation",
-    "mainTitle": "Advancing Healthcare Through Innovation",
-    "story": {
-      "title": "Our Story",
-      "p1": "Founded in 2020, our journey began with a clear vision: to address critical gaps in global healthcare through innovative pharmaceutical solutions. What started as a small research team has now grown into a dynamic pharmaceutical company at the forefront of medical innovation.",
-      "p2": "Our initial breakthrough came with the development of advanced drug delivery systems, which caught the attention of leading healthcare institutions. This success fueled our expansion into broader research areas and the development of our state-of-the-art research facility.",
-      "p3": "Today, we're proud to be working on multiple research projects, from improving existing medications to developing revolutionary new treatments. Our commitment to excellence and innovation continues to drive every aspect of our work."
-    },
-    "values": {
-      "value1": {
-        "title": "Scientific Excellence",
-        "description": "We maintain the highest standards in research and development, ensuring our solutions meet rigorous scientific criteria."
-      },
-      "value2": {
-        "title": "Patient-Focused Innovation",
-        "description": "Every decision we make is guided by our commitment to improving patient outcomes and quality of life."
-      },
-      "value3": {
-        "title": "Global Responsibility",
-        "description": "We recognize our role in global healthcare and strive to make our solutions accessible to those who need them most."
-      }
-    },
+"mission": {
+    "title": "Advancing Healthcare Through Innovation",
+    "description": "At INNANA Pharmaceuticals, we are dedicated to transforming patient care through groundbreaking medical innovations and unwavering commitment to quality. With over three decades of scientific excellence, we develop life-changing treatments that meet the highest standards of safety and efficacy. Our mission extends beyond medicine – we strive to improve global healthcare accessibility while maintaining the trust of healthcare professionals, patients, and stakeholders worldwide. Through continuous research, ethical practices, and sustainable development, we're shaping the future of healthcare for generations to come."
+},
     "research": {
       "title": "Our Research Focus",
       "area1": {
@@ -89,7 +63,7 @@
         "description": "Advancing personalized treatment solutions based on genetic and molecular profiles."
       }
     }
-  },
+  ,
   "investors": {
     "label": "Investor Relations",
     "title": "Investment Opportunity in Healthcare Innovation",

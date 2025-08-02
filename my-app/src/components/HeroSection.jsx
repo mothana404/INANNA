@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import HeoSectionVid from '../../assets/videos/HeroSectionVid.mp4';
+import HeoSectionVid from '../assets/videos/HeroSectionVid.mp4';
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -26,11 +26,11 @@ const HeroSection = () => {
       {/* Content Container */}
       <div className="relative w-full h-full">
         {/* Content Wrapper with padding for navbar */}
-        <div className="container mx-auto px-4 h-screen flex items-center">
+        <div className="container mx-auto px-4 h-screen flex items-center ">
           {/* Content Box - Adjusted for better mobile positioning */}
-          <div className="w-full max-w-3xl mx-auto mt-20 md:mt-0"> {/* Added margin-top for mobile */}
+          <div className="w-full max-w-3xl mx-auto md:mt-0"> {/* Added margin-top for mobile */}
             {/* Text Content */}
-            <div className="text-center space-y-6 py-12"> {/* Added vertical padding */}
+            <div className="text-center space-y-6 pb-12"> {/* Added vertical padding */}
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight animate-fade-in">
                 {t('hero.title', 'Leading the Future of Healthcare')}
               </h1>
