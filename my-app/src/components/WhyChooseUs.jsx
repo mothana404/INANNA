@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
-export const useScrollAnimation = (threshold = 0.1) => {
+// Custom hook for scroll animations
+const useScrollAnimation = (threshold = 0.1) => {
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, threshold });
@@ -18,22 +19,11 @@ export const useScrollAnimation = (threshold = 0.1) => {
 };
 
 const WhyChooseUs = () => {
-  const { ref, controls } = useScrollAnimation(0.1);
-
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
+  const { ref, controls } = useScrollAnimation(0.1);
 
-  // Animation controls
-  //   const controls = useAnimation();
-  //   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.1 });
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [isInView, controls]);
-
+  // List of key points
   const points = [
     "quality",
     "research",
@@ -43,6 +33,7 @@ const WhyChooseUs = () => {
     "sustainability",
   ];
 
+  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -65,6 +56,14 @@ const WhyChooseUs = () => {
     },
   };
 
+  // Stats data
+  const stats = [
+    { value: "30+", label: isRTL ? "سنوات خبرة" : "Years Experience" },
+    { value: "500+", label: isRTL ? "منتج" : "Products" },
+    { value: "50+", label: isRTL ? "دولة" : "Countries" },
+    { value: "99.9%", label: isRTL ? "رضا العملاء" : "Client Satisfaction" },
+  ];
+
   return (
     <section
       ref={ref}
@@ -80,34 +79,16 @@ const WhyChooseUs = () => {
               visible: { opacity: 1, scale: 1 },
             }}
             transition={{ duration: 0.7 }}
-            className={`relative hidden sm:hidden md:block lg:block xl:block ${
-              isRTL ? "lg:order-2" : ""
-            }`}
+            className={`relative hidden md:block ${isRTL ? "lg:order-2" : ""}`}
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10"></div>
               <img
-                src="https://images.unsplash.com/photo-1740592755404-a9ae4c88b1a0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://images.unsplash.com/photo-1740592755404-a9ae4c88b1a0?q=80&w=1170&auto=format&fit=crop"
                 alt="Pharmaceutical Laboratory"
                 className="w-full h-[400px] md:h-[450px] lg:h-[500px] object-cover"
+                loading="lazy"
               />
-              {/* Floating Badge */}
-              {/* <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={controls}
-                variants={{
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg z-20"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-semibold text-gray-800">
-                    ISO 9001:2015
-                  </span>
-                </div>
-              </motion.div> */}
             </div>
             {/* Decorative Elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-200 rounded-full opacity-20 blur-2xl"></div>
@@ -124,14 +105,15 @@ const WhyChooseUs = () => {
           >
             {/* Header */}
             <motion.div variants={itemVariants} className="mb-6">
-              <h2
-                className={`text-3xl md:text-4xl font-bold text-gray-900 mb-2 
-                             ${isRTL ? "font-arabic" : ""}`}
+              <h2 
+                className={`text-3xl md:text-4xl font-bold text-gray-900 mb-2 ${
+                  isRTL ? "font-arabic" : ""
+                }`}
               >
                 {t("whyChooseUs.title")}
               </h2>
-              <p
-                className={`text-lg text-teal-600 font-medium ${
+              <p 
+                className={`text-lg text-blue-600 font-medium ${
                   isRTL ? "font-arabic" : ""
                 }`}
               >
@@ -142,52 +124,32 @@ const WhyChooseUs = () => {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className={`text-base md:text-lg text-gray-600 leading-relaxed mb-8 
-                         ${isRTL ? "font-arabic" : ""}`}
+              className={`text-base md:text-lg text-gray-600 leading-relaxed mb-8 ${
+                isRTL ? "font-arabic" : ""
+              }`}
             >
               {t("whyChooseUs.description")}
             </motion.p>
 
             {/* Points List */}
             <motion.ul className="space-y-3 mb-8">
-              {points.map((point, index) => (
+              {points.map((point) => (
                 <motion.li
                   key={point}
                   variants={itemVariants}
-                  custom={index}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span
-                    className={`text-gray-700 leading-relaxed 
-                                   ${isRTL ? "font-arabic" : ""}`}
+                  <CheckCircle2 className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <span 
+                    className={`text-gray-700 leading-relaxed ${
+                      isRTL ? "font-arabic" : ""
+                    }`}
                   >
                     {t(`whyChooseUs.points.${point}`)}
                   </span>
                 </motion.li>
               ))}
             </motion.ul>
-
-            {/* CTA Button */}
-            {/* <motion.div variants={itemVariants}>
-              <button
-                className={`group inline-flex items-center gap-2 px-6 py-3 
-                                bg-gradient-to-r from-blue-600 to-blue-700 text-white 
-                                rounded-xl font-medium shadow-lg hover:shadow-xl 
-                                transform hover:scale-105 transition-all duration-300
-                                ${isRTL ? "flex-row-reverse font-arabic" : ""}`}
-              >
-                <span>{t("whyChooseUs.cta")}</span>
-                <ArrowRight
-                  className={`w-4 h-4 group-hover:translate-x-1 transition-transform
-                                      ${
-                                        isRTL
-                                          ? "rotate-180 group-hover:-translate-x-1"
-                                          : ""
-                                      }`}
-                />
-              </button>
-            </motion.div> */}
           </motion.div>
         </div>
 
@@ -203,18 +165,7 @@ const WhyChooseUs = () => {
         >
           <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-              {[
-                {
-                  value: "30+",
-                  label: isRTL ? "سنوات خبرة" : "Years Experience",
-                },
-                { value: "500+", label: isRTL ? "منتج" : "Products" },
-                { value: "50+", label: isRTL ? "دولة" : "Countries" },
-                {
-                  value: "99.9%",
-                  label: isRTL ? "رضا العملاء" : "Client Satisfaction",
-                },
-              ].map((stat, index) => (
+              {stats.map((stat, index) => (
                 <motion.div
                   key={index}
                   className="text-center"
@@ -228,7 +179,7 @@ const WhyChooseUs = () => {
                   <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
                     {stat.value}
                   </div>
-                  <div
+                  <div 
                     className={`text-sm text-gray-600 ${
                       isRTL ? "font-arabic" : ""
                     }`}
@@ -245,4 +196,4 @@ const WhyChooseUs = () => {
   );
 };
 
-export default WhyChooseUs;
+export default memo(WhyChooseUs);

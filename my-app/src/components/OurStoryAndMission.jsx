@@ -1,181 +1,164 @@
-import React from "react";
+import React, { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 const OurStoryAndMission = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === "ar";
+
+  // Optimized animation variants
+  const backgroundOrbs = {
+    animate: {
+      opacity: [0.3, 0.5, 0.3],
+      scale: [1, 1.1, 1],
+      transition: {
+        duration: 10,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const contentVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
+  };
+
+  const floatingElements = {
+    animate: {
+      y: [0, -10, 0],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-teal-50/30 via-white to-teal-100/20">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0">
-        {/* Gradient Orbs - Teal Theme */}
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-50/30 via-white to-blue-100/20">
+      {/* Background Elements - Optimized */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Primary Gradient Orbs */}
         <motion.div
-          initial={{ opacity: 0.5 }}
-          animate={{
-            opacity: [0.3, 0.5, 0.3],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-20 left-[20%] w-72 h-72 bg-teal-200/20 rounded-full blur-3xl"
+          variants={backgroundOrbs}
+          initial="initial"
+          animate="animate"
+          className="absolute top-20 left-[20%] w-72 h-72 bg-blue-200/20 rounded-full blur-3xl"
         />
         <motion.div
-          initial={{ opacity: 0.5 }}
-          animate={{
-            opacity: [0.3, 0.5, 0.3],
-            scale: [1.2, 1, 1.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute bottom-20 right-[20%] w-96 h-96 bg-teal-300/15 rounded-full blur-3xl"
+          variants={backgroundOrbs}
+          initial="initial"
+          animate="animate"
+          className="absolute bottom-20 right-[20%] w-96 h-96 bg-blue-300/15 rounded-full blur-3xl"
         />
 
-        {/* Additional Teal Orbs */}
-        <motion.div
-          initial={{ opacity: 0.3 }}
-          animate={{
-            opacity: [0.2, 0.4, 0.2],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute top-1/2 left-[10%] w-48 h-48 bg-teal-400/10 rounded-full blur-2xl"
-        />
-
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.01]" />
-
-        {/* Subtle Teal Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-teal-50/5 to-white/20" />
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(circle,_#4299e1_1px,_transparent_1px)] [background-size:20px_20px]" />
       </div>
 
-      {/* Content Container */}
-      <motion.div
-        className="relative z-10 container mx-auto px-4 py-20 min-h-screen flex items-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="max-w-3xl mx-auto">
+      {/* Main Content */}
+      <div className="relative z-10 container mx-auto px-4 py-20 min-h-screen flex items-center">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             className="text-center space-y-8"
-            initial={{ y: 20 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={contentVariants}
+            initial="initial"
+            animate="animate"
+            dir={isRTL ? "rtl" : "ltr"}
           >
+            {/* Title */}
             <motion.h2
-              className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              className={`text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-6
+                ${isRTL ? "font-arabic" : ""}`}
             >
               {t("mission.title")}
             </motion.h2>
 
+            {/* Subtitle */}
+            <motion.h3
+              className={`text-xl md:text-2xl text-blue-600 font-medium mb-8
+                ${isRTL ? "font-arabic" : ""}`}
+            >
+              {t("mission.subtitle")}
+            </motion.h3>
+
+            {/* Description */}
             <motion.p
-              className="text-lg md:text-xl text-gray-600 leading-relaxed"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
+              className={`text-lg md:text-xl text-gray-600 leading-relaxed mb-12
+                ${isRTL ? "font-arabic" : ""}`}
             >
               {t("mission.description")}
             </motion.p>
 
-            {/* Decorative Line - Teal Theme */}
+            {/* Values or Key Points */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              {[1, 2, 3].map((index) => (
+                <motion.div
+                  key={index}
+                  variants={{
+                    initial: { opacity: 0, y: 20 },
+                    animate: { 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { delay: 0.2 * index }
+                    }
+                  }}
+                  initial="initial"
+                  animate="animate"
+                  className="bg-white/50 backdrop-blur-sm rounded-xl p-6 shadow-lg shadow-blue-100/20"
+                >
+                  <h4 className={`text-xl font-semibold text-gray-800 mb-3
+                    ${isRTL ? "font-arabic" : ""}`}>
+                    {t(`mission.values.${index}.title`)}
+                  </h4>
+                  <p className={`text-gray-600
+                    ${isRTL ? "font-arabic" : ""}`}>
+                    {t(`mission.values.${index}.description`)}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Decorative Line */}
             <motion.div
-              className="w-24 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full shadow-sm shadow-teal-500/20"
-              initial={{ width: 0 }}
-              animate={{ width: 96 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
+              className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full shadow-sm"
+              initial={{ width: 0, opacity: 0 }}
+              animate={{ width: 96, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
             />
           </motion.div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Additional Decorative Elements */}
+      {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
       
-      {/* Floating Shapes - Teal Theme */}
-      <motion.div
-        className="absolute top-20 right-10 w-20 h-20 border-3 border-teal-200/40 rounded-lg"
-        animate={{
-          rotate: 360,
-          y: [0, -20, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-20 left-10 w-16 h-16 border-3 border-teal-300/30 rounded-full"
-        animate={{
-          rotate: -360,
-          x: [0, 20, 0],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
+      {/* Floating Elements - Optimized */}
+      <div className="hidden lg:block">
+        <motion.div
+          variants={floatingElements}
+          animate="animate"
+          className="absolute top-20 right-10 w-16 h-16 border-2 border-blue-200/40 rounded-lg"
+        />
+        <motion.div
+          variants={floatingElements}
+          animate="animate"
+          className="absolute bottom-20 left-10 w-12 h-12 border-2 border-blue-300/30 rounded-full"
+        />
+      </div>
 
-      {/* Additional Floating Elements */}
-      <motion.div
-        className="absolute top-1/3 right-[15%] w-8 h-8 bg-teal-400/20 rounded-full"
-        animate={{
-          y: [0, -15, 0],
-          opacity: [0.2, 0.4, 0.2],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1.5,
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/3 left-[15%] w-6 h-6 bg-teal-500/15 rounded-full"
-        animate={{
-          x: [0, 15, 0],
-          opacity: [0.15, 0.3, 0.15],
-        }}
-        transition={{
-          duration: 7,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2.5,
-        }}
-      />
-
-      {/* Subtle Teal Accent Lines */}
-      <motion.div
-        className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-300/30 to-transparent"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 2 }}
-      />
-      <motion.div
-        className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-400/20 to-transparent"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 2 }}
-      />
+      {/* Subtle Accent Lines */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-300/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/20 to-transparent" />
     </section>
   );
 };
 
-export default OurStoryAndMission;
+export default memo(OurStoryAndMission);

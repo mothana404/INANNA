@@ -5,7 +5,8 @@ import Footer from '../components/Footer';
 import FeaturedProducts from '../components/FeaturedProducts';
 import WhyChooseUs from '../components/WhyChooseUs';
 import OurStoryAndMission from '../components/OurStoryAndMission';
-import Investors from '../components/Investors';
+import InvestorsSection from '../components/InvestorsSection';
+import GlobalOperationsSection from '../components/GlobalOperationsSection';
 
 const HomePage = () => {
   return (
@@ -15,7 +16,8 @@ const HomePage = () => {
       <WhyChooseUs />
       <OurStoryAndMission />
       <FeaturedProducts />
-      {/* <Investors /> */}
+      <InvestorsSection />
+      <GlobalOperationsSection />
       <Footer />
     </div>
   );
