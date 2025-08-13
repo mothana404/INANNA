@@ -1,149 +1,157 @@
-// components/AboutSection.jsx
-
 import React, { memo } from "react";
 import { motion } from "framer-motion";
-import { FiAward, FiHeart, FiTrendingUp } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
-
-const StatCard = memo(({ icon: Icon, number, text }) => (
-  <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 
-                  hover:shadow-md transition duration-300">
-    <div className="flex items-center space-x-4">
-      <div className="flex items-center justify-center w-12 h-12 bg-blue-50 
-                      rounded-full flex-shrink-0">
-        <Icon className="w-6 h-6 text-blue-600" />
-      </div>
-      <div>
-        <div className="text-2xl font-bold text-gray-900">{number}</div>
-        <div className="text-sm text-gray-600">{text}</div>
-      </div>
-    </div>
-  </div>
-));
 
 const AboutSection = () => {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === 'ar';
 
   return (
-    <section className="relative bg-white overflow-hidden" id="about-section">
-      {/* Hero Section */}
-      <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
-          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
+    <section className="relative bg-white" id="about-section">
+      {/* Creative Header */}
+      <div className="relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 -mr-20 w-96 h-96 opacity-20">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#3B82F6" d="M47.5,-67.2C55.9,-59.3,53.2,-37.9,56.7,-20.1C60.2,-2.3,69.9,11.8,67.6,24.2C65.3,36.6,51,47.3,36.5,53.9C22,60.5,7.3,63,-8.9,63.9C-25.1,64.8,-42.8,64.1,-54.6,55.3C-66.4,46.5,-72.3,29.5,-74.3,12.1C-76.3,-5.3,-74.4,-23,-65.7,-35.8C-57,-48.6,-41.5,-56.5,-27,-60.7C-12.5,-64.9,1.1,-65.4,12.8,-62.1C24.5,-58.8,39.1,-75.1,47.5,-67.2Z" transform="translate(100 100)" />
+          </svg>
+        </div>
+        <div className="absolute bottom-0 left-0 -ml-20 w-96 h-96 opacity-20">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#3B82F6" d="M38.5,-47.1C50.9,-36.9,62.3,-25.2,65.8,-11.1C69.3,3,64.8,19.5,56.2,33.8C47.6,48.1,34.8,60.3,19.5,65.9C4.1,71.5,-13.9,70.5,-30.4,64.1C-46.9,57.7,-61.9,45.9,-69.7,29.8C-77.5,13.7,-78,-6.7,-71.1,-23.5C-64.2,-40.3,-49.8,-53.5,-34.9,-62.6C-19.9,-71.7,-4.4,-76.7,6.9,-72.8C18.2,-68.9,26.1,-57.2,38.5,-47.1Z" transform="translate(100 100)" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              <h2 className={`text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl ${isRTL ? 'font-arabic' : ''}`}>
-                <span className="block">INNANA</span>
-                <span className="block text-blue-600 text-3xl sm:text-4xl mt-3">
-                  {t('about.subtitle', 'Advancing Healthcare Through Innovation')}
-                </span>
-              </h2>
-              <p className={`mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl ${isRTL ? 'font-arabic' : ''}`}>
-                {t('about.description', 
-                  'Leading the way in pharmaceutical excellence, delivering innovative solutions that improve lives across the globe.'
-                )}
+              <h1 className={`text-5xl font-extrabold leading-tight ${isRTL ? 'font-arabic' : ''}`}>
+                <span className="block text-gray-900">Shaping the Future of</span>
+                <span className="block text-blue-600">Healthcare Innovation</span>
+              </h1>
+              <div className="mt-6 h-1 w-20 bg-blue-600"></div>
+              <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+                At INNANA, we're pioneering breakthrough solutions that transform healthcare delivery and improve patient outcomes globally.
               </p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-8 px-8 py-3 bg-blue-600 text-white rounded-full font-medium 
+                         hover:bg-blue-700 transition-colors duration-300"
+              >
+                Learn More
+              </motion.button>
             </motion.div>
-          </main>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1626420925443-c6421f87daa9?q=80&w=1182&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                  alt="Healthcare Innovation" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Stats Section */}
-      {/* <div className="py-12 bg-gray-50">
+      {/* Key Metrics */}
+      {/* <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <StatCard 
-              icon={FiHeart}
-              number="30+"
-              text={t('about.stats.years', 'Years of Excellence')}
-            />
-            <StatCard 
-              icon={FiTrendingUp}
-              number="50+"
-              text={t('about.stats.countries', 'Countries Served')}
-            />
-            <StatCard 
-              icon={FiAward}
-              number="100+"
-              text={t('about.stats.products', 'Products Developed')}
-            />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="text-center"
+            >
+              <div className="text-4xl font-bold text-blue-600">30+</div>
+              <div className="mt-2 text-gray-600">Years Experience</div>
+            </motion.div>
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="text-center"
+            >
+              <div className="text-4xl font-bold text-blue-600">100+</div>
+              <div className="mt-2 text-gray-600">Products</div>
+            </motion.div>
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="text-center"
+            >
+              <div className="text-4xl font-bold text-blue-600">50+</div>
+              <div className="mt-2 text-gray-600">Countries</div>
+            </motion.div>
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="text-center"
+            >
+              <div className="text-4xl font-bold text-blue-600">1M+</div>
+              <div className="mt-2 text-gray-600">Patients Served</div>
+            </motion.div>
           </div>
         </div>
       </div> */}
 
-      {/* Mission Statement */}
-      {/* <div className="py-16 bg-white">
+      {/* Our Vision */}
+      <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="lg:text-center"
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center"
           >
-            <h3 className={`text-3xl font-bold text-gray-900 sm:text-4xl ${isRTL ? 'font-arabic' : ''}`}>
-              {t('about.mission.title', 'Our Mission')}
-            </h3>
-            <p className={`mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto ${isRTL ? 'font-arabic' : ''}`}>
-              {t('about.mission.description',
-                'To develop and deliver innovative pharmaceutical solutions that address unmet medical needs, while maintaining the highest standards of quality, safety, and ethical practice.'
-              )}
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Vision</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              To be the global leader in innovative healthcare solutions, setting new standards in patient care and pharmaceutical excellence.
             </p>
           </motion.div>
         </div>
-      </div> */}
+      </div>
 
       {/* Core Values */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-12"
-          >
-            <div className="text-center">
-              <h3 className={`text-3xl font-bold text-gray-900 ${isRTL ? 'font-arabic' : ''}`}>
-                {t('about.values.title', 'Our Core Values')}
-              </h3>
-            </div>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">
-                  {t('about.values.innovation.title', 'Innovation')}
-                </h4>
-                <p className="text-gray-600">
-                  {t('about.values.innovation.description', 
-                    'Continuously pushing boundaries to develop breakthrough solutions.'
-                  )}
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">
-                  {t('about.values.quality.title', 'Quality')}
-                </h4>
-                <p className="text-gray-600">
-                  {t('about.values.quality.description', 
-                    'Maintaining the highest standards in all our products and processes.'
-                  )}
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">
-                  {t('about.values.integrity.title', 'Integrity')}
-                </h4>
-                <p className="text-gray-600">
-                  {t('about.values.integrity.description', 
-                    'Operating with transparency and ethical principles.'
-                  )}
-                </p>
-              </div>
-            </div>
-          </motion.div>
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Our Core Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Innovation",
+                description: "Pushing boundaries to develop breakthrough solutions"
+              },
+              {
+                title: "Excellence",
+                description: "Maintaining the highest standards in everything we do"
+              },
+              {
+                title: "Integrity",
+                description: "Operating with transparency and ethical principles"
+              }
+            ].map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">{value.title}</h3>
+                <p className="text-gray-600">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

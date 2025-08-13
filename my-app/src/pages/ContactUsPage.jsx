@@ -196,12 +196,6 @@ return (
                     <span>{t('contact.form.submit', 'Send Message')}</span>
                     <FiSend className="w-5 h-5" />
                   </motion.button>
-
-                  <p className="text-sm text-gray-500 text-center mt-4">
-                    {t('contact.form.privacy', 
-                      'By submitting this form, you agree to our privacy policy and terms of service.'
-                    )}
-                  </p>
                 </form>
               </motion.div>
             </div>
