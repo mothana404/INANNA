@@ -1,7 +1,7 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { FiHeart, FiUsers, FiGlobe, FiSun, FiArrowRight } from "react-icons/fi";
+import { FiHeart, FiUsers, FiSun, FiArrowRight } from "react-icons/fi";
 
 const ImpactSection = () => {
   const { t, i18n } = useTranslation();

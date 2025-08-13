@@ -113,18 +113,6 @@ const OurStoryAndMission = () => {
 
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
-      
-      {/* Floating Elements - Optimized */}
-      <div className="hidden lg:block">
-        <motion.div
-          animate="animate"
-          className="absolute top-20 right-10 w-16 h-16 border-2 border-blue-200/40 rounded-lg"
-        />
-        <motion.div
-          animate="animate"
-          className="absolute bottom-20 left-10 w-12 h-12 border-2 border-blue-300/30 rounded-full"
-        />
-      </div>
 
       {/* Subtle Accent Lines */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-300/30 to-transparent" />
