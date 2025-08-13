@@ -6,19 +6,6 @@ const OurStoryAndMission = () => {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
 
-  // Optimized animation variants
-  const backgroundOrbs = {
-    animate: {
-      opacity: [0.3, 0.5, 0.3],
-      scale: [1, 1.1, 1],
-      transition: {
-        duration: 10,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
-
   const contentVariants = {
     initial: { opacity: 0, y: 20 },
     animate: { 
@@ -30,30 +17,17 @@ const OurStoryAndMission = () => {
     },
   };
 
-  const floatingElements = {
-    animate: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
-
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-50/30 via-white to-blue-100/20">
       {/* Background Elements - Optimized */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Primary Gradient Orbs */}
         <motion.div
-          variants={backgroundOrbs}
           initial="initial"
           animate="animate"
           className="absolute top-20 left-[20%] w-72 h-72 bg-blue-200/20 rounded-full blur-3xl"
         />
         <motion.div
-          variants={backgroundOrbs}
           initial="initial"
           animate="animate"
           className="absolute bottom-20 right-[20%] w-96 h-96 bg-blue-300/15 rounded-full blur-3xl"
@@ -143,12 +117,10 @@ const OurStoryAndMission = () => {
       {/* Floating Elements - Optimized */}
       <div className="hidden lg:block">
         <motion.div
-          variants={floatingElements}
           animate="animate"
           className="absolute top-20 right-10 w-16 h-16 border-2 border-blue-200/40 rounded-lg"
         />
         <motion.div
-          variants={floatingElements}
           animate="animate"
           className="absolute bottom-20 left-10 w-12 h-12 border-2 border-blue-300/30 rounded-full"
         />
