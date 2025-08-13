@@ -1,137 +1,100 @@
-import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { FiArrowRight, FiPlay } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
-import { memo } from 'react';
-
-// Memoized Button Component
-const ActionButton = memo(({ to, className, children }) => (
-  <Link to={to} className={className}>
-    {children}
-  </Link>
-));
+import React, { useState, useEffect, useRef } from "react";
 
 const HeroSection = () => {
-  const { t } = useTranslation();
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const heroRef = useRef(null);
 
-  const stats = [
-    { number: '50+', label: t('hero.stats.countries') },
-    { number: '1000+', label: t('hero.stats.products') },
-    { number: '30+', label: t('hero.stats.experience') }
-  ];
+  // Replace with your Firebase Storage URL
+  const videoUrl =
+    "https://firebasestorage.googleapis.com/v0/b/my-gallery-2e2f2.appspot.com/o/HeroSectionVid.mp4?alt=media&token=6475158f-97ce-4bce-a931-da198f3bf2ad";
 
- return (
-    <div className="relative min-h-screen w-full overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full">
+  // Optional: Add a fallback image URL from Firebase Storage
+  const fallbackImageUrl =
+    "https://images.unsplash.com/photo-1603398938378-e54eab446dde?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleVideoLoad = () => {
+    setVideoLoaded(true);
+  };
+
+  const handleVideoError = () => {
+    setVideoError(true);
+  };
+
+  return (
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Video Background - optimized for older devices */}
+      {!videoError && (
         <video
+          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            videoLoaded ? "opacity-100" : "opacity-0"
+          }`}
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover scale-105"
-          poster="/video-poster.jpg"
+          preload="metadata"
+          poster={fallbackImageUrl}
+          onLoadedData={handleVideoLoad}
+          onError={handleVideoError}
         >
-          <source src={'https://firebasestorage.googleapis.com/v0/b/my-gallery-2e2f2.appspot.com/o/HeroSectionVid.mp4?alt=media&token=6475158f-97ce-4bce-a931-da198f3bf2ad'} type="video/mp4" />
+          <source src={videoUrl} type="video/mp4" />
         </video>
+      )}
 
-        {/* Modified Overlays - More subtle and transparent */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-        
-        {/* Optional: Add a very subtle texture overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px]" />
-      </div>
+      {/* Fallback Image for video loading or error states */}
+      {(videoError || !videoLoaded) && (
+        <div
+          className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${fallbackImageUrl})` }}
+        />
+      )}
 
-      {/* Content Container - Adjust text colors for better visibility */}
-      <div className="relative w-full h-full">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center justify-center">
-          <div className="w-full max-w-5xl mx-auto text-center pt-20 sm:pt-16">
+      {/* Dark Overlay with subtle blue tint - improved readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-blue-900/30 to-black/70" />
 
-            {/* Main Title - Enhanced contrast */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mt-6">
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="block drop-shadow-lg"
-              >
-                {t('hero.title1')}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="block bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent drop-shadow-lg"
-              >
-                {t('hero.title2')}
-              </motion.span>
-            </h1>
+      {/* Content Container */}
+      <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto">
+          {/* Title with subtle blue accent - better contrast */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up drop-shadow-lg">
+            Welcome to Our{' '}
+            <span className="text-blue-300 drop-shadow-md">
+              Platform
+            </span>
+          </h1>
 
-            {/* Description - Adjusted for better readability */}
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed px-4 mt-6 drop-shadow-lg"
-            >
-              {t('hero.description')}
-            </motion.p>
+          {/* Paragraph with better readability */}
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto animate-fade-in-up animation-delay-200 mb-8 drop-shadow-md leading-relaxed">
+            Experience the future of technology with our innovative solutions.
+            We're here to transform your digital journey with cutting-edge tools
+            and services.
+          </p>
 
-            {/* Buttons - Adjusted for better visibility */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 pt-4 sm:pt-8"
-            >
-              <ActionButton
-                to="/products"
-                className="group w-full sm:w-auto bg-blue-600/90 hover:bg-blue-700 text-white px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/30 font-semibold flex items-center justify-center space-x-2 backdrop-blur-sm"
-              >
-                <span>{t('hero.ourProducts')}</span>
-                <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </ActionButton>
-              
-              <button 
-                className="group w-full sm:w-auto bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/50 hover:border-white/70 text-white px-8 py-4 rounded-full transition-all duration-300 font-semibold flex items-center justify-center space-x-2"
-              >
-                <FiPlay className="w-4 h-4" />
-                <span>{t('hero.watchVideo')}</span>
-              </button>
-            </motion.div>
-
-            {/* Stats Section - Adjusted for better visibility */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-              className="hidden md:grid grid-cols-3 gap-8 lg:gap-12 mt-16 lg:mt-20"
-            >
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 drop-shadow-lg">
-                    {stat.number}
-                  </div>
-                  <div className="text-white/80 text-sm lg:text-base font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Floating Elements - Made more subtle */}
-            <div className="hidden lg:block">
-              <div className="absolute top-1/4 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl animate-pulse-slow" />
-              <div className="absolute top-1/3 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse-slow" />
-              <div className="absolute bottom-1/4 left-1/4 w-16 h-16 bg-blue-300/20 rounded-full blur-xl animate-pulse-slow" />
-            </div>
-          </div>
+          {/* Subtle blue accent line */}
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full opacity-80"></div>
         </div>
       </div>
     </div>
   );
 };
 
-// Performance optimization
-export default memo(HeroSection);
+export default HeroSection;
