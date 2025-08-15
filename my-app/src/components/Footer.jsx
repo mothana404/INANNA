@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import NavbarLogo from "../assets/images/222527428.png";
+import NavbarLogo from "../assets/images/logo.png";
 
 const FooterSection = memo(({ title, children }) => (
   <div className="space-y-4 sm:space-y-6">

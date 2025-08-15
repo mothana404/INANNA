@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import NavbarLogo from '../assets/images/222527428.png';
+import NavbarLogo from '../assets/images/logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
