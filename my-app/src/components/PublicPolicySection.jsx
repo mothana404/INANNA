@@ -1,5 +1,3 @@
-// components/PublicPolicySection.jsx
-
 import React, { memo } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -42,11 +40,10 @@ const PublicPolicySection = () => {
           className="text-center mb-16"
         >
           <h2 className={`text-3xl font-bold text-gray-900 mb-4 ${isRTL ? 'font-arabic' : ''}`}>
-            {t('policy.title', 'Public Policy & Compliance')}
+            {t('policy.title')}
           </h2>
           <p className={`text-xl text-gray-600 max-w-3xl mx-auto ${isRTL ? 'font-arabic' : ''}`}>
-            {t('policy.description', 
-              'Upholding the highest standards of ethical conduct and regulatory compliance in pharmaceutical manufacturing and distribution')}
+            {t('policy.description')}
           </p>
         </motion.div>
 
@@ -63,24 +60,21 @@ const PublicPolicySection = () => {
               <div className="flex items-center space-x-4 mb-6">
                 <FiShield className="w-8 h-8 text-blue-600" />
                 <h3 className={`text-2xl font-semibold ${isRTL ? 'font-arabic' : ''}`}>
-                  {t('policy.framework.title', 'Our Policy Framework')}
+                  {t('policy.framework.title')}
                 </h3>
               </div>
               <div className="space-y-6">
                 <PolicyItem
-                  title={t('policy.framework.quality.title', 'Quality Standards')}
-                  description={t('policy.framework.quality.description',
-                    'Adhering to international GMP standards and maintaining rigorous quality control processes')}
+                  title={t('policy.framework.quality.title')}
+                  description={t('policy.framework.quality.description')}
                 />
                 <PolicyItem
-                  title={t('policy.framework.compliance.title', 'Regulatory Compliance')}
-                  description={t('policy.framework.compliance.description',
-                    'Meeting and exceeding global regulatory requirements for pharmaceutical manufacturing and distribution')}
+                  title={t('policy.framework.compliance.title')}
+                  description={t('policy.framework.compliance.description')}
                 />
                 <PolicyItem
-                  title={t('policy.framework.ethics.title', 'Ethical Guidelines')}
-                  description={t('policy.framework.ethics.description',
-                    'Maintaining transparent business practices and ethical standards in all operations')}
+                  title={t('policy.framework.ethics.title')}
+                  description={t('policy.framework.ethics.description')}
                 />
               </div>
             </motion.div>
@@ -96,36 +90,32 @@ const PublicPolicySection = () => {
               <div className="flex items-center space-x-4 mb-6">
                 <FiAward className="w-8 h-8 text-blue-600" />
                 <h3 className={`text-2xl font-semibold ${isRTL ? 'font-arabic' : ''}`}>
-                  {t('policy.initiatives.title', 'Key Initiatives')}
+                  {t('policy.initiatives.title')}
                 </h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
                   <FiFileText className="w-6 h-6 text-blue-600 mt-1" />
                   <span className="text-gray-600">
-                    {t('policy.initiatives.item1',
-                      'Implementation of advanced quality management systems')}
+                    {t('policy.initiatives.item1')}
                   </span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <FiFileText className="w-6 h-6 text-blue-600 mt-1" />
                   <span className="text-gray-600">
-                    {t('policy.initiatives.item2',
-                      'Regular compliance training for all employees')}
+                    {t('policy.initiatives.item2')}
                   </span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <FiFileText className="w-6 h-6 text-blue-600 mt-1" />
                   <span className="text-gray-600">
-                    {t('policy.initiatives.item3',
-                      'Collaboration with regulatory bodies for policy development')}
+                    {t('policy.initiatives.item3')}
                   </span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <FiFileText className="w-6 h-6 text-blue-600 mt-1" />
                   <span className="text-gray-600">
-                    {t('policy.initiatives.item4',
-                      'Continuous monitoring and improvement of compliance processes')}
+                    {t('policy.initiatives.item4')}
                   </span>
                 </li>
               </ul>
@@ -139,11 +129,10 @@ const PublicPolicySection = () => {
               className="bg-blue-50 rounded-xl p-6"
             >
               <h4 className={`text-lg font-semibold text-gray-900 mb-3 ${isRTL ? 'font-arabic' : ''}`}>
-                {t('policy.commitment.title', 'Our Commitment')}
+                {t('policy.commitment.title')}
               </h4>
               <p className="text-gray-600">
-                {t('policy.commitment.description',
-                  'We are committed to maintaining the highest standards of quality and compliance while working towards improving global healthcare accessibility and affordability.')}
+                {t('policy.commitment.description')}
               </p>
             </motion.div>
           </div>

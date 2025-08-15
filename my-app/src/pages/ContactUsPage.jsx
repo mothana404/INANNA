@@ -3,6 +3,7 @@ import { FiUser, FiMail, FiPhone, FiMessageSquare, FiSend } from "react-icons/fi
 import { motion } from "framer-motion";
 import WebsiteLayout from "../layouts/WebsiteLayout";
 import { useTranslation } from "react-i18next";
+import emailjs from 'emailjs-com';  // Import EmailJS
 
 const InputField = memo(({ icon: Icon, type, name, value, onChange, placeholder, required }) => (
   <div className="relative">
@@ -33,6 +34,7 @@ const ContactUs = () => {
     phone: "",
     message: ""
   });
+  const [popupVisible, setPopupVisible] = useState(false);
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -40,33 +42,53 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
+      .then((result) => {
+          console.log(result.text);
+          setPopupVisible(true);
+          setTimeout(() => setPopupVisible(false), 3000);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: ""
+          });
+      }, (error) => {
+          console.log(error.text);
+      });
   };
 
   const ContactCard = memo(({ icon: Icon, title, content }) => (
-  <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition duration-300 flex items-center space-x-4">
-    <div className="flex items-center justify-center w-10 h-10 bg-blue-50 rounded-full flex-shrink-0">
-      <Icon className="w-5 h-5 text-blue-500" />
+    <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition duration-300 flex items-center space-x-4">
+      <div className="flex items-center justify-center w-10 h-10 bg-blue-50 rounded-full flex-shrink-0">
+        <Icon className="w-5 h-5 text-blue-500" />
+      </div>
+      <div>
+        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+        <p className="text-gray-600 text-sm">{content}</p>
+      </div>
     </div>
-    <div>
-      <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-      <p className="text-gray-600 text-sm">{content}</p>
-    </div>
-  </div>
-));
+  ));
 
-return (
+  return (
     <WebsiteLayout>
       <div className="min-h-screen bg-gray-50">
+        {popupVisible && (
+          <div className="fixed top-0 left-0 right-0 bg-green-500 text-white text-center py-2">
+            {t('contact.popup', 'Your message has been sent successfully!')}
+          </div>
+        )}
+        
         {/* Header Section */}
         <div className="bg-white border-b border-gray-100">
           <div className="container mx-auto px-4 py-16">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className={`text-4xl sm:text-5xl font-bold text-gray-900 mb-6 ${isRTL ? 'font-arabic' : ''}`}>
-                {t('contact.title', 'Contact Us')}
+                {t('contact.title')}
               </h1>
               <p className={`text-lg text-gray-600 ${isRTL ? 'font-arabic' : ''}`}>
-                {t('contact.description', `We'd love to hear from you. Please fill out this form or shoot us an email.`)}
+                {t('contact.description')}
               </p>
             </div>
           </div>
@@ -77,18 +99,18 @@ return (
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             <ContactCard
               icon={FiPhone}
-              title={t('contact.phone.title', 'Phone')}
-              content={t('contact.phone.content', '+1 (555) 123-4567')}
+              title={t('contact.phone.title')}
+              content={t('contact.phone.content')}
             />
             <ContactCard
               icon={FiMail}
-              title={t('contact.email.title', 'Email')}
-              content={t('contact.email.content', 'contact@innana.com')}
+              title={t('contact.email.title')}
+              content={t('contact.email.content')}
             />
             <ContactCard
               icon={FiMessageSquare}
-              title={t('contact.address.title', 'Address')}
-              content={t('contact.address.content', '123 Business Ave, New York')}
+              title={t('contact.address.title')}
+              content={t('contact.address.content')}
             />
           </div>
         </div>
@@ -105,23 +127,17 @@ return (
                 className="lg:sticky lg:top-24"
               >
                 <h2 className={`text-2xl sm:text-3xl font-bold text-gray-900 mb-6 ${isRTL ? 'font-arabic' : ''}`}>
-                  {t('contact.about.title', 'About Our Company')}
+                  {t('contact.about.title')}
                 </h2>
                 <div className={`prose prose-lg text-gray-600 ${isRTL ? 'font-arabic' : ''}`}>
                   <p className="mb-6">
-                    {t('contact.about.description1', 
-                      'INNANA Pharmaceuticals is a leading innovator in the healthcare industry, dedicated to improving lives through cutting-edge medical solutions and unwavering commitment to quality.'
-                    )}
+                    {t('contact.about.description1')}
                   </p>
                   <p className="mb-6">
-                    {t('contact.about.description2',
-                      `With over three decades of experience, we've established ourselves as a trusted partner in global healthcare, serving millions of patients across more than 50 countries.`
-                    )}
+                    {t('contact.about.description2')}
                   </p>
                   <p>
-                    {t('contact.about.description3',
-                      'Our team of experts is ready to assist you with any inquiries about our products, services, or potential collaborations.'
-                    )}
+                    {t('contact.about.description3')}
                   </p>
                 </div>
               </motion.div>
@@ -135,7 +151,7 @@ return (
               >
                 <h3 className={`text-2xl font-semibold text-gray-900 mb-8 flex items-center ${isRTL ? 'font-arabic' : ''}`}>
                   <FiMessageSquare className="w-6 h-6 mr-3 text-blue-500" />
-                  {t('contact.form.title', 'Send us a message')}
+                  {t('contact.form.title')}
                 </h3>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -146,7 +162,7 @@ return (
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder={t('contact.form.namePlaceholder', 'Full Name')}
+                      placeholder={t('contact.form.namePlaceholder')}
                       required
                     />
                     <InputField
@@ -155,7 +171,7 @@ return (
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder={t('contact.form.emailPlaceholder', 'Email Address')}
+                      placeholder={t('contact.form.emailPlaceholder')}
                       required
                     />
                   </div>
@@ -166,7 +182,7 @@ return (
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder={t('contact.form.phonePlaceholder', 'Phone Number (Optional)')}
+                    placeholder={t('contact.form.phonePlaceholder')}
                   />
 
                   <div className="relative">
@@ -179,7 +195,7 @@ return (
                               focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 
                               bg-white text-gray-900 text-base placeholder-gray-400 
                               transition duration-300 hover:border-blue-300 resize-none"
-                      placeholder={t('contact.form.messagePlaceholder', 'Your message...')}
+                      placeholder={t('contact.form.messagePlaceholder')}
                       required
                     ></textarea>
                   </div>
@@ -193,7 +209,7 @@ return (
                              text-base font-semibold shadow-lg shadow-blue-500/25 
                              hover:shadow-blue-500/40"
                   >
-                    <span>{t('contact.form.submit', 'Send Message')}</span>
+                    <span>{t('contact.form.submit')}</span>
                     <FiSend className="w-5 h-5" />
                   </motion.button>
                 </form>

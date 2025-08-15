@@ -1,18 +1,19 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About",
     "products": "Products",
-    "contactButton": "Contact Us",
     "globalOperations": "Global Operations",
     "aboutUs": "About Us",
-    "investors": "Investors"
+    "contactButton": "Contact Us",
+    "companyName": "INNANA",
+    "companyTagline": "PHARMACEUTICALS",
+    "logoAlt": "INNANA Logo",
+    "toggleMenu": "Toggle Navigation"
   },
   "hero": {
-    "title": "Leading the Future of Healthcare",
-    "description": "Innovative pharmaceutical solutions for a healthier tomorrow",
-    "learnMoreBtn": "Discover More",
-    "ourProducts": "Discover Our Products"
+    "welcomeText": "Welcome to Our",
+    "platform": "Platform",
+    "description": "Experience the future of technology with our innovative solutions. We're here to transform your digital journey with cutting-edge tools and services."
   },
   "products": {
     "featuredTitle": "Over-the-Counter Products",
@@ -27,23 +28,44 @@
     "learnMoreBtn": "View all products"
   },
     "whyChooseUs": {
-        "title": "Why Choose Us",
-        "subtitle": "Leading Pharmaceutical Excellence Since 1990",
-        "description": "With over three decades of experience in the pharmaceutical industry, we have established ourselves as a trusted partner for healthcare providers worldwide. Our commitment to quality, innovation, and patient safety drives everything we do.",
-        "points": {
-        "quality": "FDA & EMA approved manufacturing facilities with GMP certification",
-        "research": "15% annual revenue invested in R&D for innovative solutions",
-        "global": "Serving healthcare systems in over 50 countries globally",
-        "products": "Portfolio of 500+ high-quality pharmaceutical products",
-        "support": "24/7 technical support for healthcare professionals",
-        "sustainability": "Committed to sustainable and ethical pharmaceutical practices"
-        },
-        "cta": "Learn More About Our Mission"
+    "title": "Why Choose Us",
+    "subtitle": "Excellence in Pharmaceutical Solutions",
+    "description": "With decades of experience in the pharmaceutical industry, we are committed to delivering innovative healthcare solutions that improve lives and set new standards in quality and efficacy.",
+    "imageAlt": "Pharmaceutical Laboratory",
+    "points": {
+      "quality": "Highest quality standards with international certifications",
+      "research": "Cutting-edge research and development facilities",
+      "global": "Global reach with local expertise and understanding",
+      "products": "Comprehensive product portfolio for diverse healthcare needs",
+      "support": "24/7 customer support and technical assistance",
+      "sustainability": "Commitment to sustainable and ethical practices"
     },
+    "stats": {
+      "experience": "Years Experience",
+      "products": "Products",
+      "countries": "Countries",
+      "satisfaction": "Client Satisfaction"
+    }
+  },
 "mission": {
-    "title": "Advancing Healthcare Through Innovation",
-    "description": "At INNANA Pharmaceuticals, we are dedicated to transforming patient care through groundbreaking medical innovations and unwavering commitment to quality. With over three decades of scientific excellence, we develop life-changing treatments that meet the highest standards of safety and efficacy. Our mission extends beyond medicine – we strive to improve global healthcare accessibility while maintaining the trust of healthcare professionals, patients, and stakeholders worldwide. Through continuous research, ethical practices, and sustainable development, we're shaping the future of healthcare for generations to come."
-},
+    "title": "Our Story & Mission",
+    "subtitle": "Pioneering Healthcare Solutions Since 1993",
+    "description": "For over three decades, we have been at the forefront of pharmaceutical innovation, dedicated to improving lives through quality healthcare solutions. Our journey began with a simple vision: to make world-class medicines accessible to all.",
+    "values": {
+      "1": {
+        "title": "Innovation",
+        "description": "Continuously advancing pharmaceutical research to develop breakthrough treatments"
+      },
+      "2": {
+        "title": "Quality",
+        "description": "Maintaining the highest standards in manufacturing and quality control processes"
+      },
+      "3": {
+        "title": "Accessibility",
+        "description": "Making essential medicines available and affordable to communities worldwide"
+      }
+    }
+  },
     "research": {
       "title": "Our Research Focus",
       "area1": {
@@ -65,99 +87,318 @@
     }
   ,
   "investors": {
-    "label": "Investor Relations",
-    "title": "Investment Opportunity in Healthcare Innovation",
-    "subtitle": "Join us in revolutionizing the pharmaceutical industry through innovative research and development",
-    "metrics": {
-      "fundingRaised": "Total Funding Raised",
-      "fundingRaisedDesc": "Series A funding completed in Q1 2024",
-      "marketSize": "Target Market Size",
-      "marketSizeDesc": "Projected market size by 2025",
-      "partnerships": "Strategic Partnerships",
-      "partnershipsDesc": "Collaborations with leading institutions",
-      "patents": "Patents Filed",
-      "patentsDesc": "Including 5 granted patents"
+    "title": "Investor Relations",
+    "subtitle": "Delivering sustainable growth and long-term value to our shareholders through innovation and market leadership.",
+    "stats": {
+      "marketCap": "Market Cap",
+      "stockPrice": "Stock Price",
+      "dividend": "Dividend/Share",
+      "countries": "Countries"
     },
-    "tabs": {
-      "overview": "Overview",
-      "financials": "Financials",
-      "research": "Research Pipeline",
-      "governance": "Governance"
+    "financial": {
+      "title": "Financial Overview",
+      "revenue": {
+        "title": "Revenue Growth",
+        "description": "Achieved 15.3% year-over-year revenue growth with strong performance across all regions.",
+        "label": "Q4 2023 Results"
+      },
+      "margin": {
+        "title": "Operating Margin",
+        "description": "Maintained industry-leading operating margin of 32.5% through operational excellence.",
+        "label": "Above industry average"
+      },
+      "rnd": {
+        "title": "R&D Investment",
+        "description": "Invested $1.2B in research and development, representing 18% of annual revenue.",
+        "label": "Industry leading"
+      }
     },
-    "overview": {
+    "highlights": {
       "title": "Investment Highlights",
-      "p1": "Our company is at the forefront of pharmaceutical innovation, developing breakthrough treatments for critical medical conditions. With a strong research pipeline and strategic partnerships, we're positioned for significant growth in the global healthcare market.",
-      "p2": "We focus on high-impact therapeutic areas with significant unmet medical needs, supported by a world-class team of researchers and industry experts.",
-      "highlights": "Key Investment Highlights",
-      "highlight1": "Strong intellectual property portfolio with multiple patents",
-      "highlight2": "Experienced management team with proven track record",
-      "highlight3": "Clear path to market with established partnerships"
+      "market": {
+        "title": "Market Leadership",
+        "description": "Leading market position in key therapeutic areas with established global presence.",
+        "tag1": "#1 in Oncology",
+        "tag2": "#2 in Cardiology"
+      },
+      "innovation": {
+        "title": "Innovation Pipeline",
+        "description": "25+ compounds in development, including 5 in late-stage clinical trials.",
+        "tag1": "Phase III: 5",
+        "tag2": "Phase II: 8"
+      },
+      "growth": {
+        "title": "Strategic Growth",
+        "description": "Expanding market presence through strategic acquisitions and partnerships.",
+        "tag1": "3 Acquisitions",
+        "tag2": "12 Partnerships"
+      }
     },
-    "charts": {
-      "growthTitle": "Revenue Growth Trajectory",
-      "revenue": "Quarterly Revenue (Millions USD)"
-    },
-    "cta": {
-      "title": "Connect with Our Investor Relations Team",
-      "description": "Learn more about investment opportunities and our growth strategy",
-      "button1": "Request Investor Deck",
-      "button2": "Schedule a Call"
+    "governance": {
+      "title": "Corporate Governance",
+      "board": {
+        "title": "Board Composition",
+        "description": "Independent directors with diverse industry expertise"
+      },
+      "esg": {
+        "title": "ESG Commitment",
+        "description": "Top-tier ESG ratings with clear sustainability targets",
+        "tag1": "Carbon Neutral",
+        "tag2": "2030 Goals"
+      },
+      "risk": {
+        "title": "Risk Management",
+        "description": "Robust framework ensuring operational excellence",
+        "compliance": "95% Compliance Rate"
+      }
     }
   },
-  "ContactUsPage": {
+  "global": {
+    "title": "Global Operations",
+    "description": "Delivering excellence in pharmaceutical manufacturing and distribution across continents",
+    "manufacturing": {
+      "title": "Manufacturing Excellence",
+      "description1": "Our state-of-the-art manufacturing facilities operate across strategic locations worldwide, ensuring consistent supply and quality control.",
+      "description2": "Each facility is equipped with cutting-edge technology and follows stringent GMP guidelines.",
+      "facilities": "Manufacturing Sites",
+      "operations": "Operations",
+      "locations": "Key Manufacturing Locations",
+      "region1": "North America",
+      "region2": "Europe",
+      "region3": "Asia Pacific",
+      "region4": "Middle East"
+    },
+    "distribution": {
+      "title": "Global Distribution Network",
+      "logistics": "Logistics Excellence",
+      "logistics.description": "Advanced tracking systems and temperature-controlled supply chain ensuring product integrity.",
+      "partners": "Strategic Partners",
+      "partners.description": "Collaboration with leading logistics providers and local distributors worldwide.",
+      "compliance": "Compliance",
+      "compliance.description": "Meeting international regulations for pharmaceutical transportation and storage."
+    },
+    "quality": {
+      "title": "Global Quality Assurance",
+      "description": "Our comprehensive quality management system ensures consistent product quality across all global operations.",
+      "item1": "ISO 9001:2015 Certified Operations",
+      "item2": "Regular Quality Audits",
+      "item3": "Advanced Testing Facilities",
+      "item4": "Continuous Monitoring Systems",
+      "standards": "Global Quality Standards & Achievements",
+      "paragraph1": "INNANA Pharmaceuticals maintains the highest quality standards across all global operations, earning recognition from leading international regulatory bodies including FDA, EMA, and WHO. Our facilities consistently achieve excellence in GMP compliance and environmental sustainability.",
+      "paragraph2": "Our commitment to quality has earned us multiple international certifications and awards. We've received the prestigious Global Manufacturing Excellence Award for three consecutive years, recognizing our innovative quality management systems and continuous improvement processes."
+    }
+  },
+  "contact": {
     "title": "Contact Us",
-    "subtitle": "We're here to help and answer any questions you might have. Please feel free to reach out to us.",
+    "description": "We'd love to hear from you. Whether you have a question about our services, need assistance, or want to learn more about our products, our team is ready to answer all your inquiries.",
+    "phone": {
+      "title": "Phone",
+      "content": "+1 (555) 123-4567"
+    },
+    "email": {
+      "title": "Email",
+      "content": "contact@innana.com"
+    },
+    "address": {
+      "title": "Address",
+      "content": "123 Business Ave, New York"
+    },
+    "about": {
+      "title": "About Our Company",
+      "description1": "INNANA Pharmaceuticals is a leading innovator in the healthcare industry, dedicated to improving lives through cutting-edge medical solutions and unwavering commitment to quality. Our mission is to create a healthier world through innovative drug development and comprehensive healthcare services.",
+      "description2": "With over three decades of experience, we've established ourselves as a trusted partner in global healthcare, serving millions of patients across more than 50 countries. We are committed to sustainable practices that benefit both people and the planet.",
+      "description3": "Our team of experts is ready to assist you with any inquiries about our products, services, or potential collaborations. We believe in building strong relationships based on trust and transparency."
+    },
     "form": {
-      "title": "Send Us a Message",
-      "name": "Full Name",
-      "email": "Email Address",
-      "phone": "Phone Number",
-      "subject": "Subject",
-      "message": "Your Message",
+      "title": "Send us a message",
+      "namePlaceholder": "Full Name",
+      "emailPlaceholder": "Email Address",
+      "phonePlaceholder": "Phone Number (Optional)",
+      "messagePlaceholder": "Your message...",
       "submit": "Send Message"
     },
-    "PhoneCards": {
-      "title": "Phone",
-      "number": "+1 (555) 123-4567",
-      "time": "Mon-Fri, 9AM-6PM"
+    "popup": "Your message has been sent successfully!"
+  },
+  "productsPage": {
+    "allProducts": "All Products",
+    "cardiovascular": "Cardiovascular",
+    "neurological": "Neurological",
+    "immunology": "Immunology",
+    "gastroenterology": "Gastroenterology",
+    "respiratory": "Respiratory",
+    "dermatology": "Dermatology",
+    "ourPharmaceuticalProducts": "Our Pharmaceutical Products",
+    "discoverOurRange": "Discover our comprehensive range of pharmaceutical solutions designed to meet the highest standards of quality and efficacy.",
+    "viewDetails": "View Details",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "of": "of",
+    "filterProducts": "Filter Products",
+    "productType": "Product Type",
+    "prescription": "Prescription",
+    "overTheCounter": "Over the Counter",
+    "supplements": "Supplements",
+    "availability": "Availability",
+    "inStock": "In Stock",
+    "preOrder": "Pre-order",
+    "clearAllFilters": "Clear All Filters",
+    "productOverview": "Product Overview",
+    "totalProducts": "Total Products",
+    "categories": "Categories",
+    "showing": "Showing",
+    "needAssistance": "Need Assistance?",
+    "helpMessage": "Our experts are here to help you find the right products.",
+    "contactSupport": "Contact Support",
+    "browseByCategory": "Browse by Medical Category"
+  },
+"about": {
+    "header": {
+      "part1": "Shaping the Future of",
+      "part2": "Healthcare Innovation"
     },
-    "EmailCards": {
-      "title": "Email",
-      "emil": "contact@medpharm.com",
-      "time": "24/7 Support Available"
+    "description": "At INNANA, we are at the forefront of healthcare innovation, dedicating ourselves to developing transformative solutions that revolutionize healthcare delivery. Our commitment to improving patient outcomes drives us to continuously explore cutting-edge technologies and groundbreaking methodologies.",
+    "learnMore": "Discover Our Journey",
+    "imageAlt": "Innovative Healthcare Solutions",
+    "vision": {
+      "title": "Our Vision",
+      "description": "We envision a world where healthcare is accessible, advanced, and tailored to individual needs. Our goal is to lead globally in pioneering healthcare solutions, setting new benchmarks in patient care, and achieving pharmaceutical excellence through relentless dedication and innovation."
     },
-    "AddressCards": {
-      "title": "Address",
-      "emil": "123 Medical Plaza, NY",
-      "time": "Main Office Location"
+    "values": {
+      "title": "Our Core Values",
+      "innovation": {
+        "title": "Innovation",
+        "description": "We push boundaries to develop breakthrough solutions that address unmet medical needs and drive the future of healthcare."
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "We maintain the highest standards in all our endeavors, ensuring quality, safety, and reliability in everything we produce and deliver."
+      },
+      "integrity": {
+        "title": "Integrity",
+        "description": "We operate with unwavering transparency and ethical principles, fostering trust and respect among our partners and communities."
+      }
+    }
+  },
+  "business": {
+    "header": {
+      "part1": "Transforming Healthcare",
+      "part2": "Through Innovation"
+    },
+    "description": "INNANA Pharmaceuticals is committed to delivering excellence in pharmaceutical solutions through our comprehensive and integrated business operations. We strive to enhance global healthcare by leveraging our cutting-edge technologies and industry expertise.",
+    "learnMore": "Discover More",
+    "areas": {
+      "manufacturing": {
+        "title": "Manufacturing Excellence",
+        "description": "Our state-of-the-art facilities are designed to produce high-quality pharmaceutical products under strict quality control, ensuring safety and efficacy at every step of production."
+      },
+      "research": {
+        "title": "Research & Development",
+        "description": "Our innovative research programs are focused on developing breakthrough medications and treatments that push the boundaries of healthcare science, bringing hope to patients worldwide."
+      },
+      "distribution": {
+        "title": "Global Distribution",
+        "description": "Through our extensive and reliable distribution network, we ensure that our products reach patients in need, regardless of geographical location, improving accessibility and reliability."
+      },
+      "quality": {
+        "title": "Quality Assurance",
+        "description": "Our rigorous quality control processes are designed to meet and exceed international standards and regulations, guaranteeing that every product is of the highest quality and safety."
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Healthcare Together?",
+      "button": "Partner With Us Today"
+    }
+  },
+  "impact": {
+    "header": "Making a Profound Difference",
+    "description": "At our core, we are dedicated to transforming lives through the development of innovative healthcare solutions and the implementation of sustainable practices. Our mission is to extend our reach globally, ensuring that every individual has access to the healthcare they deserve.",
+    "globalImpact": {
+      "title": "Global Impact Overview",
+      "lives": "Through our healthcare initiatives, we have positively impacted over 10 million lives. Our efforts are focused on improving healthcare accessibility and quality for all.",
+      "countries": "Our reach extends to over 50 countries worldwide, where we work collaboratively with local partners to meet the healthcare needs of diverse populations.",
+      "reduction": "We are committed to sustainability with a 30% reduction in our environmental impact, actively pursuing eco-friendly practices across our operations."
+    },
+    "commitment": {
+      "title": "Our Commitment",
+      "description": "We are deeply committed to creating sustainable healthcare solutions that benefit communities worldwide. Our focus is on delivering innovative healthcare that not only improves lives but also protects our planet for future generations."
+    },
+    "learnMore": "Learn More about Our Initiatives",
+    "areas": {
+      "access": {
+        "title": "Enhancing Healthcare Access",
+        "description": "We are dedicated to providing affordable medications and improving healthcare accessibility in underserved regions. Our programs are designed to ensure that everyone, irrespective of geographical or economic barriers, has access to essential healthcare services.",
+        "stat": "10M+ Lives Impacted"
+      },
+      "community": {
+        "title": "Empowering Community Development",
+        "description": "Through our support of local healthcare initiatives and educational programs, we foster sustainable growth within communities. Our aim is to equip local populations with the tools and knowledge they need to maintain their health and well-being.",
+        "stat": "500+ Programs"
+      },
+      "environment": {
+        "title": "Leading Environmental Sustainability",
+        "description": "We are actively implementing eco-friendly practices to reduce our environmental footprint. Our commitment to sustainability is evidenced by our initiatives to minimize waste, conserve resources, and promote green technologies.",
+        "stat": "30% Reduction"
+      }
+    },
+    "cta": {
+      "title": "Join Our Mission",
+      "description": "Together, we can create a healthier, more sustainable future for all. We invite you to join us on this journey of innovation and impact.",
+      "button": "Partner With Us"
+    }
+  },
+  "policy": {
+    "title": "Public Policy & Compliance",
+    "description": "We are committed to upholding the highest standards of ethical conduct and regulatory compliance in pharmaceutical manufacturing and distribution. Our policies are designed to ensure that our operations meet both international and local regulations and ethical guidelines, providing assurance of quality and safety in every aspect of our work.",
+    "framework": {
+      "title": "Our Policy Framework",
+      "quality": {
+        "title": "Quality Standards",
+        "description": "We adhere to international Good Manufacturing Practice (GMP) standards and maintain rigorous quality control processes. Our commitment to quality is unwavering, as we continually strive to enhance our practices and systems."
+      },
+      "compliance": {
+        "title": "Regulatory Compliance",
+        "description": "Meeting and exceeding global regulatory requirements for pharmaceutical manufacturing and distribution is core to our operations. We work diligently to ensure that our practices are compliant with all applicable laws and regulations."
+      },
+      "ethics": {
+        "title": "Ethical Guidelines",
+        "description": "We maintain transparent business practices and ethical standards in all operations. Our dedication to integrity guides every decision we make and every action we take, ensuring trust and credibility among our stakeholders."
+      }
+    },
+    "initiatives": {
+      "title": "Key Initiatives",
+      "item1": "Implementation of advanced quality management systems that focus on continuous improvement and innovation to meet the evolving needs of healthcare.",
+      "item2": "Regular compliance training for all employees to ensure understanding and adherence to regulatory requirements and ethical standards.",
+      "item3": "Collaboration with regulatory bodies for policy development to contribute to the advancement of healthcare and regulatory frameworks.",
+      "item4": "Continuous monitoring and improvement of compliance processes to guarantee that our operations remain aligned with the latest standards and best practices."
+    },
+    "commitment": {
+      "title": "Our Commitment",
+      "description": "We are committed to maintaining the highest standards of quality and compliance while working towards improving global healthcare accessibility and affordability. Our initiatives are driven by a desire to make a positive impact on society, ensuring that our contributions to the field of healthcare are both meaningful and lasting."
     }
   },
   "footer": {
-    "companyDescription": "Leading the way in innovative pharmaceutical solutions, committed to improving global health and well-being through cutting-edge medical research and development.",
+    "logoAlt": "INNANA Pharmaceuticals Logo",
+    "companyName": "INNANA",
+    "companyType": "PHARMACEUTICALS",
+    "companyDescription": "INNANA Pharmaceuticals is committed to excellence in manufacturing and distributing high-quality pharmaceutical products globally.",
+    "tagline": "Innovating Health",
     "quickLinks": {
       "title": "Quick Links",
       "about": "About Us",
-      "products": "Our Products",
-      "research": "Research & Development",
-      "careers": "Careers",
-      "news": "News & Updates"
+      "products": "Products",
+      "research": "Research",
+      "news": "News"
     },
     "healthcare": {
       "title": "Healthcare Professionals",
       "resources": "Medical Resources",
-      "documentation": "Product Documentation",
-      "publications": "Scientific Publications",
+      "documentation": "Documentation",
+      "publications": "Publications",
       "safety": "Safety Information"
     },
-    "contact": {
-      "title": "Contact Us",
-      "emergency": "+1 (800) 123-4567",
-      "email": "info@yourcompany.com",
-      "address": "123 Pharmaceutical Street, Medical City, MC 12345"
-    },
-    "copyright": "© 2025 INNANA. All rights reserved.",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Use",
-    "sitemap": "Sitemap"
+    "linkArrow": "▶",
+    "copyright": "© 2023 INNANA Pharmaceuticals. All rights reserved."
   }
 }

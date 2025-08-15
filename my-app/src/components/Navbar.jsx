@@ -29,7 +29,7 @@ const Navbar = () => {
   const navigationLinks = [
     { path: '/', label: 'nav.home' },
     { path: '/products', label: 'nav.products' },
-    { path: '/global-operations', label: 'nav.globalOperations' },
+    // { path: '/global-operations', label: 'nav.globalOperations' },
     { path: '/about', label: 'nav.aboutUs' },
   ];
 
@@ -89,7 +89,7 @@ const Navbar = () => {
               ${currentLang === 'ar' 
                 ? (isScrolled || !isHomePage 
                     ? 'bg-blue-600 text-white' 
-                    : 'bg-white text-blue-800')
+                                       : 'bg-white text-blue-800')
                 : (isScrolled || !isHomePage 
                     ? 'text-blue-600 hover:bg-blue-50' 
                     : 'text-white/80 hover:bg-white/10')}
@@ -109,9 +109,9 @@ const Navbar = () => {
       <Link
         to={to}
         className={`
-          relative px-3 lg:px-4 py-2 lg:py-2.5
+          relative px-3 lg:px-4 py-2 lg:py-2.5 mx-2
           text-sm font-medium transition-all duration-300
-          group rounded-lg whitespace-nowrap
+          group rounded-lg whitespace-nowrap 
           ${isScrolled || !isHomePage 
             ? `${isActive ? 'text-blue-800 bg-blue-100' : 'text-blue-700 hover:text-blue-800 hover:bg-blue-50'}` 
             : `${isActive ? 'text-white bg-white/10' : 'text-white/90 hover:text-white hover:bg-white/10'}`}
@@ -129,7 +129,6 @@ const Navbar = () => {
       </Link>
     );
   };
-// ... continuing from Part 1
 
   return (
     <nav className="fixed w-full z-50 px-2 sm:px-4 lg:px-8 pt-2 sm:pt-3">
@@ -150,7 +149,7 @@ const Navbar = () => {
               <div className="relative">
                 <img 
                   src={NavbarLogo} 
-                  alt="INNANA Logo" 
+                  alt={t('nav.logoAlt')} 
                   className={`
                     w-8 h-8 sm:w-10 sm:h-10 object-contain transition-all duration-300 
                     ${isScrolled || !isHomePage 
@@ -171,13 +170,13 @@ const Navbar = () => {
                     ? 'text-blue-800' 
                     : 'text-white drop-shadow-lg'}
                 `}>
-                  INNANA
+                  {t('nav.companyName')}
                 </div>
                 <div className={`
-                  text-xs font-semibold tracking-wider uppercase transition-colors duration-300
+                                    text-xs font-semibold tracking-wider uppercase transition-colors duration-300
                   ${isScrolled || !isHomePage ? 'text-blue-600' : 'text-white/90'}
                 `}>
-                  PHARMACEUTICALS
+                  {t('nav.companyTagline')}
                 </div>
               </div>
 
@@ -189,7 +188,7 @@ const Navbar = () => {
                     ? 'text-blue-800' 
                     : 'text-white drop-shadow-lg'}
                 `}>
-                  INNANA
+                  {t('nav.companyName')}
                 </div>
               </div>
             </div>
@@ -233,7 +232,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button and Language Switcher */}
-          <div className="flex items-center space-x-2 lg:hidden">
+          <div className="flex items-center space-x-2 lg:hidden gap-2">
             {/* Mobile Language Switcher */}
             <div className={`
               flex items-center px-2 py-1.5 rounded-lg transition-all duration-300
@@ -248,14 +247,14 @@ const Navbar = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`
-                rounded-full p-2 transition-all duration-300
-                focus:outline-none focus:ring-2 focus:ring-offset-2
+                rounded-full p-2 transition-all duration-300 
+                focus:outline-none focus:ring-2 focus:ring-offset-2 
                 ${isScrolled || !isHomePage 
                   ? 'text-blue-700 hover:bg-blue-50 focus:ring-blue-500' 
                   : 'text-white hover:bg-white/10 focus:ring-white/20'}
               `}
             >
-              <span className="sr-only">Toggle Navigation</span>
+              <span className="sr-only">{t('nav.toggleMenu')}</span>
               <svg
                 className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300"
                 fill="none"
@@ -302,7 +301,7 @@ const Navbar = () => {
                       block px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg 
                       transition-all duration-300 font-medium text-sm sm:text-base
                       ${isScrolled || !isHomePage 
-                        ? `${isActive ? 'text-blue-800 bg-blue-100' : 'text-blue-700 hover:bg-blue-50 hover:text-blue-800'}` 
+                                                ? `${isActive ? 'text-blue-800 bg-blue-100' : 'text-blue-700 hover:bg-blue-50 hover:text-blue-800'}` 
                         : `${isActive ? 'text-white bg-white/10' : 'text-white/90 hover:bg-white/10 hover:text-white'}`}
                     `}
                   >

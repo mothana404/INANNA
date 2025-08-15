@@ -1,5 +1,6 @@
 // components/InvestorsSection.jsx
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { FiTrendingUp, FiBarChart2, FiPieChart, FiGlobe, FiArrowUpRight, FiCheck } from "react-icons/fi";
 
 const StatCard = ({ icon: Icon, value, label, trend }) => (
@@ -27,6 +28,8 @@ const StatCard = ({ icon: Icon, value, label, trend }) => (
 );
 
 const InvestorsSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="bg-gray-50 py-12 sm:py-16 lg:py-20 relative overflow-hidden">
       {/* Background pattern */}
@@ -43,12 +46,12 @@ const InvestorsSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
+                        className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
           >
-            Investor Relations
+            {t("investors.title")}
           </motion.h2>
           <p className="text-lg sm:text-xl text-gray-600 px-4 sm:px-0">
-            Delivering sustainable growth and long-term value to our shareholders through innovation and market leadership.
+            {t("investors.subtitle")}
           </p>
         </div>
 
@@ -60,7 +63,7 @@ const InvestorsSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <StatCard icon={FiTrendingUp} value="$8.2B" label="Market Cap" trend="+12%" />
+            <StatCard icon={FiTrendingUp} value="$8.2B" label={t("investors.stats.marketCap")} trend="+12%" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -68,7 +71,7 @@ const InvestorsSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <StatCard icon={FiBarChart2} value="$42.15" label="Stock Price" trend="+5.3%" />
+            <StatCard icon={FiBarChart2} value="$42.15" label={t("investors.stats.stockPrice")} trend="+5.3%" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -76,7 +79,7 @@ const InvestorsSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <StatCard icon={FiPieChart} value="$2.80" label="Dividend/Share" />
+            <StatCard icon={FiPieChart} value="$2.80" label={t("investors.stats.dividend")} />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -84,7 +87,7 @@ const InvestorsSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <StatCard icon={FiGlobe} value="50+" label="Countries" />
+            <StatCard icon={FiGlobe} value="50+" label={t("investors.stats.countries")} />
           </motion.div>
         </div>
 
@@ -95,37 +98,37 @@ const InvestorsSection = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-                        className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300"
+            className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Financial Overview</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{t("investors.financial.title")}</h3>
               <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
                 <FiBarChart2 className="w-6 h-6 text-blue-500" />
               </div>
             </div>
             <div className="space-y-6">
               <div className="border-l-4 border-blue-500 pl-4">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Revenue Growth</h4>
-                <p className="text-sm sm:text-base text-gray-600">Achieved 15.3% year-over-year revenue growth with strong performance across all regions.</p>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{t("investors.financial.revenue.title")}</h4>
+                <p className="text-sm sm:text-base text-gray-600">{t("investors.financial.revenue.description")}</p>
                 <div className="flex items-center gap-2 mt-2">
                   <FiCheck className="w-4 h-4 text-green-500" />
-                  <span className="text-xs text-gray-500">Q4 2023 Results</span>
+                  <span className="text-xs text-gray-500">{t("investors.financial.revenue.label")}</span>
                 </div>
               </div>
               <div className="border-l-4 border-purple-500 pl-4">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Operating Margin</h4>
-                <p className="text-sm sm:text-base text-gray-600">Maintained industry-leading operating margin of 32.5% through operational excellence.</p>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{t("investors.financial.margin.title")}</h4>
+                <p className="text-sm sm:text-base text-gray-600">{t("investors.financial.margin.description")}</p>
                 <div className="flex items-center gap-2 mt-2">
                   <FiCheck className="w-4 h-4 text-green-500" />
-                  <span className="text-xs text-gray-500">Above industry average</span>
+                  <span className="text-xs text-gray-500">{t("investors.financial.margin.label")}</span>
                 </div>
               </div>
               <div className="border-l-4 border-green-500 pl-4">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">R&D Investment</h4>
-                <p className="text-sm sm:text-base text-gray-600">Invested $1.2B in research and development, representing 18% of annual revenue.</p>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{t("investors.financial.rnd.title")}</h4>
+                <p className="text-sm sm:text-base text-gray-600">{t("investors.financial.rnd.description")}</p>
                 <div className="flex items-center gap-2 mt-2">
                   <FiCheck className="w-4 h-4 text-green-500" />
-                  <span className="text-xs text-gray-500">Industry leading</span>
+                  <span className="text-xs text-gray-500">{t("investors.financial.rnd.label")}</span>
                 </div>
               </div>
             </div>
@@ -139,34 +142,34 @@ const InvestorsSection = () => {
             className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Investment Highlights</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{t("investors.highlights.title")}</h3>
               <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center">
                 <FiTrendingUp className="w-6 h-6 text-green-500" />
               </div>
             </div>
             <div className="space-y-6">
               <div className="bg-blue-50 rounded-lg p-4">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Market Leadership</h4>
-                <p className="text-sm sm:text-base text-gray-600">Leading market position in key therapeutic areas with established global presence.</p>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{t("investors.highlights.market.title")}</h4>
+                <p className="text-sm sm:text-base text-gray-600">{t("investors.highlights.market.description")}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="text-xs bg-white px-2 py-1 rounded text-blue-700">#1 in Oncology</span>
-                  <span className="text-xs bg-white px-2 py-1 rounded text-blue-700">#2 in Cardiology</span>
+                  <span className="text-xs bg-white px-2 py-1 rounded text-blue-700">{t("investors.highlights.market.tag1")}</span>
+                  <span className="text-xs bg-white px-2 py-1 rounded text-blue-700">{t("investors.highlights.market.tag2")}</span>
                 </div>
               </div>
               <div className="bg-purple-50 rounded-lg p-4">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Innovation Pipeline</h4>
-                <p className="text-sm sm:text-base text-gray-600">25+ compounds in development, including 5 in late-stage clinical trials.</p>
+                                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{t("investors.highlights.innovation.title")}</h4>
+                <p className="text-sm sm:text-base text-gray-600">{t("investors.highlights.innovation.description")}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="text-xs bg-white px-2 py-1 rounded text-purple-700">Phase III: 5</span>
-                                    <span className="text-xs bg-white px-2 py-1 rounded text-purple-700">Phase II: 8</span>
+                  <span className="text-xs bg-white px-2 py-1 rounded text-purple-700">{t("investors.highlights.innovation.tag1")}</span>
+                  <span className="text-xs bg-white px-2 py-1 rounded text-purple-700">{t("investors.highlights.innovation.tag2")}</span>
                 </div>
               </div>
               <div className="bg-green-50 rounded-lg p-4">
-                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Strategic Growth</h4>
-                <p className="text-sm sm:text-base text-gray-600">Expanding market presence through strategic acquisitions and partnerships.</p>
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{t("investors.highlights.growth.title")}</h4>
+                <p className="text-sm sm:text-base text-gray-600">{t("investors.highlights.growth.description")}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="text-xs bg-white px-2 py-1 rounded text-green-700">3 Acquisitions</span>
-                  <span className="text-xs bg-white px-2 py-1 rounded text-green-700">12 Partnerships</span>
+                  <span className="text-xs bg-white px-2 py-1 rounded text-green-700">{t("investors.highlights.growth.tag1")}</span>
+                  <span className="text-xs bg-white px-2 py-1 rounded text-green-700">{t("investors.highlights.growth.tag2")}</span>
                 </div>
               </div>
             </div>
@@ -183,7 +186,7 @@ const InvestorsSection = () => {
           {/* Decorative element */}
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-purple-50 rounded-full -mr-16 -mt-16 opacity-50" />
           
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 relative z-10">Corporate Governance</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 relative z-10">{t("investors.governance.title")}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative z-10">
             <motion.div 
               whileHover={{ scale: 1.02 }}
@@ -192,16 +195,9 @@ const InvestorsSection = () => {
               <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-xl font-bold text-blue-600">12</span>
               </div>
-              <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Board Composition</h4>
-              <p className="text-sm sm:text-base text-gray-600">Independent directors with diverse industry expertise</p>
-              <div className="mt-4 flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 bg-gray-300 rounded-full border-2 border-white" />
-                  <div className="w-8 h-8 bg-gray-400 rounded-full border-2 border-white" />
-                  <div className="w-8 h-8 bg-gray-500 rounded-full border-2 border-white" />
-                  <div className="w-8 h-8 bg-gray-600 rounded-full border-2 border-white flex items-center justify-center text-xs text-white">+8</div>
-                </div>
-              </div>
+              <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{t("investors.governance.board.title")}</h4>
+              <p className="text-sm sm:text-base text-gray-600">{t("investors.governance.board.description")}</p>
+
             </motion.div>
             
             <motion.div 
@@ -210,12 +206,12 @@ const InvestorsSection = () => {
             >
               <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <span className="text-xl font-bold text-green-600">A+</span>
-              </div>
-              <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">ESG Commitment</h4>
-              <p className="text-sm sm:text-base text-gray-600">Top-tier ESG ratings with clear sustainability targets</p>
+                              </div>
+              <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{t("investors.governance.esg.title")}</h4>
+              <p className="text-sm sm:text-base text-gray-600">{t("investors.governance.esg.description")}</p>
               <div className="mt-4 flex gap-2">
-                <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">Carbon Neutral</span>
-                <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">2030 Goals</span>
+                <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">{t("investors.governance.esg.tag1")}</span>
+                <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">{t("investors.governance.esg.tag2")}</span>
               </div>
             </motion.div>
             
@@ -226,13 +222,13 @@ const InvestorsSection = () => {
               <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                 <FiCheck className="w-5 h-5 text-purple-600" />
               </div>
-              <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Risk Management</h4>
-              <p className="text-sm sm:text-base text-gray-600">Robust framework ensuring operational excellence</p>
+              <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{t("investors.governance.risk.title")}</h4>
+              <p className="text-sm sm:text-base text-gray-600">{t("investors.governance.risk.description")}</p>
               <div className="mt-4">
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div className="bg-purple-600 h-2 rounded-full" style={{ width: '95%' }} />
                 </div>
-                <span className="text-xs text-gray-500 mt-1 block">95% Compliance Rate</span>
+                <span className="text-xs text-gray-500 mt-1 block">{t("investors.governance.risk.compliance")}</span>
               </div>
             </motion.div>
           </div>

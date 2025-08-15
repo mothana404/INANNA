@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from 'react-i18next';
 
 const HeroSection = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const heroRef = useRef(null);
+  const { t } = useTranslation();
 
   // Replace with your Firebase Storage URL
   const videoUrl =
@@ -76,17 +78,15 @@ const HeroSection = () => {
         <div className="text-center max-w-3xl mx-auto">
           {/* Title with subtle blue accent - better contrast */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in-up drop-shadow-lg">
-            Welcome to Our{' '}
+            {t('hero.welcomeText')}{' '}
             <span className="text-blue-300 drop-shadow-md">
-              Platform
+              {t('hero.platform')}
             </span>
           </h1>
 
           {/* Paragraph with better readability */}
           <p className="text-lg sm:text-xl md:text-2xl text-gray-100 max-w-2xl mx-auto animate-fade-in-up animation-delay-200 mb-8 drop-shadow-md leading-relaxed">
-            Experience the future of technology with our innovative solutions.
-            We're here to transform your digital journey with cutting-edge tools
-            and services.
+            {t('hero.description')}
           </p>
 
           {/* Subtle blue accent line */}

@@ -58,10 +58,10 @@ const WhyChooseUs = () => {
 
   // Stats data
   const stats = [
-    { value: "30+", label: isRTL ? "سنوات خبرة" : "Years Experience" },
-    { value: "500+", label: isRTL ? "منتج" : "Products" },
-    { value: "50+", label: isRTL ? "دولة" : "Countries" },
-    { value: "99.9%", label: isRTL ? "رضا العملاء" : "Client Satisfaction" },
+    { value: "30+", label: t("whyChooseUs.stats.experience") },
+    { value: "500+", label: t("whyChooseUs.stats.products") },
+    { value: "50+", label: t("whyChooseUs.stats.countries") },
+    { value: "99.9%", label: t("whyChooseUs.stats.satisfaction") },
   ];
 
   return (
@@ -85,7 +85,7 @@ const WhyChooseUs = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10"></div>
               <img
                 src="https://images.unsplash.com/photo-1740592755404-a9ae4c88b1a0?q=80&w=1170&auto=format&fit=crop"
-                alt="Pharmaceutical Laboratory"
+                alt={t("whyChooseUs.imageAlt")}
                 className="w-full h-[400px] md:h-[450px] lg:h-[500px] object-cover"
                 loading="lazy"
               />
@@ -163,7 +163,7 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-12 md:mt-16"
         >
-          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+                      <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {stats.map((stat, index) => (
                 <motion.div

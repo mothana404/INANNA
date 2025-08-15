@@ -30,12 +30,11 @@ const ImpactSection = () => {
             className={`text-5xl font-bold mb-6 ${isRTL ? "font-arabic" : ""}`}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
-              Making a Difference
+              {t('impact.header')}
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Transforming lives through innovative healthcare solutions and
-            sustainable practices
+            {t('impact.description')}
           </p>
         </motion.div>
 
@@ -50,29 +49,31 @@ const ImpactSection = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="p-12 lg:p-16">
                 <h3 className="text-3xl font-bold mb-8">
-                  Global Impact Overview
+                  {t('impact.globalImpact.title')}
                 </h3>
                 <div className="space-y-8">
-                  <div className="flex items-center space-x-6">
+                  <div className="flex items-center space-x-6 gap-2">
                     <span className="text-4xl font-bold text-blue-600">
                       10M+
                     </span>
                     <p className="text-gray-600">
-                      Lives touched through healthcare initiatives
+                      {t('impact.globalImpact.lives')}
                     </p>
                   </div>
-                  <div className="flex items-center space-x-6">
+                  <div className="flex items-center space-x-6 gap-2">
                     <span className="text-4xl font-bold text-blue-600">
                       50+
                     </span>
-                    <p className="text-gray-600">Countries reached worldwide</p>
+                    <p className="text-gray-600">
+                      {t('impact.globalImpact.countries')}
+                    </p>
                   </div>
-                  <div className="flex items-center space-x-6">
+                  <div className="flex items-center space-x-6 gap-2">
                     <span className="text-4xl font-bold text-blue-600">
                       30%
                     </span>
                     <p className="text-gray-600">
-                      Reduction in environmental impact
+                      {t('impact.globalImpact.reduction')}
                     </p>
                   </div>
                 </div>
@@ -80,17 +81,17 @@ const ImpactSection = () => {
               <div className="relative h-full min-h-[400px] bg-blue-600">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-400 opacity-90" />
                 <div className="relative h-full p-12 lg:p-16 text-white">
-                  <h3 className="text-3xl font-bold mb-6">Our Commitment</h3>
+                  <h3 className="text-3xl font-bold mb-6">
+                    {t('impact.commitment.title')}
+                  </h3>
                   <p className="text-lg mb-8 opacity-90">
-                    We're dedicated to creating sustainable healthcare solutions
-                    that benefit communities worldwide while protecting our
-                    environment.
+                    {t('impact.commitment.description')}
                   </p>
                   <motion.button
                     whileHover={{ x: 10 }}
                     className="flex items-center text-white font-semibold"
                   >
-                    Learn More <FiArrowRight className="ml-2" />
+                    {t('impact.learnMore')} <FiArrowRight className="ml-2" />
                   </motion.button>
                 </div>
               </div>
@@ -103,30 +104,27 @@ const ImpactSection = () => {
           {[
             {
               icon: FiHeart,
-              title: "Healthcare Access",
-              description:
-                "Providing affordable medications and improving healthcare accessibility in underserved regions.",
-              stat: "10M+ Lives Impacted",
+              title: t('impact.areas.access.title'),
+              description: t('impact.areas.access.description'),
+              stat: t('impact.areas.access.stat'),
               alignment: "left",
               image:
                 "https://images.unsplash.com/photo-1704694671866-f83e0b91df09?q=80&w=1271&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             },
             {
               icon: FiUsers,
-              title: "Community Development",
-              description:
-                "Supporting local healthcare initiatives and educational programs for sustainable growth.",
-              stat: "500+ Programs",
+              title: t('impact.areas.community.title'),
+              description: t('impact.areas.community.description'),
+              stat: t('impact.areas.community.stat'),
               alignment: "right",
               image:
                 "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             },
             {
               icon: FiSun,
-              title: "Environmental Sustainability",
-              description:
-                "Implementing eco-friendly practices and reducing our environmental footprint.",
-              stat: "30% Reduction",
+              title: t('impact.areas.environment.title'),
+              description: t('impact.areas.environment.description'),
+              stat: t('impact.areas.environment.stat'),
               alignment: "left",
               image:
                 "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1313&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -138,7 +136,7 @@ const ImpactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-0 ${
+                            className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-7 ${
                 item.alignment === "right" ? "lg:flex-row-reverse" : ""
               }`}
             >
@@ -150,7 +148,7 @@ const ImpactSection = () => {
                     : "lg:pr-8 xl:pr-12"
                 }`}
               >
-                <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6 gap-2">
                   <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600 flex-shrink-0" />
                   <h3 className="text-2xl font-bold">{item.title}</h3>
                 </div>
@@ -181,10 +179,9 @@ const ImpactSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mt-32"
         >
-          <h3 className="text-3xl font-bold mb-6">Join Our Mission</h3>
+          <h3 className="text-3xl font-bold mb-6">{t('impact.cta.title')}</h3>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Together, we can create a healthier, more sustainable future for
-            all.
+            {t('impact.cta.description')}
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -192,7 +189,7 @@ const ImpactSection = () => {
             className="px-8 py-4 bg-blue-600 text-white rounded-full font-semibold 
                      hover:bg-blue-700 transition-colors duration-300"
           >
-            Partner With Us
+            {t('impact.cta.button')}
           </motion.button>
         </motion.div>
       </div>
